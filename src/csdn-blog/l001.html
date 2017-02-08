@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../../lib/vue.min.js"></script>
+</head>
+<body>
+<!--挂载点-->
+<div id="box">
+    {{msg}}
+
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        //new处理一个Vue的实例，并赋值给了vm变量，通过这个vm变量
+        var vm = new Vue({
+            //挂载点
+            el: '#box',
+            //数据
+            data: function () {
+                return {
+                    msg: 'Hello Vue! From LGH!',
+
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

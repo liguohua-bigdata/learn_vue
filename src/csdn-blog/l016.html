@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="../../lib/vue.min.js"></script>
+
+
+</head>
+<body>
+<div id="box">
+    <!--错误写法-->
+    <img src="{{url}}"><hr/>
+    <!--正确写法-->
+    <img v-bind:src="url"><hr/>
+    <!--正确写法-->
+    <img :src="url"><hr/>
+    <script type="text/javascript">
+        window.onload = function(){
+            var vm = new Vue({
+                el:'#box',
+                data:function () {
+                    return{
+                        url:'test.jpg',
+                    };
+                }
+            });
+        }
+    </script>
+</div>
+</body>
+</html>

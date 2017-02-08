@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../../lib/vue.min.js"></script>
+</head>
+<body>
+<div id="box">
+    {{msg}}
+    <hr>
+    {{reMsg}}
+    <hr>
+    {{reMsg2}}
+</div>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:'#box',
+        data:{
+            msg:'Hello'
+        },
+        computed:{
+            reMsg:function(){
+                return this.msg.split('').reverse().join('')
+            },
+            reMsg2:function(){
+                return this.msg.split('').reverse().join('#')
+            }
+        }
+    });
+
+    console.log(vm.reMsg); //'olleH'
+</script>
+</body>
+</html>

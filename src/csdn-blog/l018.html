@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="../../lib/vue.min.js"></script>
+</head>
+<body>
+<div id="box">
+    <!--过滤器-->
+    {{msg|uppercase}}
+    <hr/>
+    {{msg|lowercase}}
+    <hr/>
+    <!--过滤器串联-->
+    {{msg|lowercase|uppercaseFirst}}
+    <hr/>
+    <!--过滤器传参-->
+    {{msg|lowercase|uppercaseFirst|appendTime(new Date())}}
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        var vm = new Vue({
+            el: '#box',
+            data: {
+                msg: 'HeLLo World!',
+            },
+            filters: {
+                lowercase: function (value) {
+                    if (!value) return '';
+                    value = value.toString();
+                    return value.toLowerCase();
+                },
+                uppercase: function (value) {
+                    if (!value) return '';
+                    value = value.toString();
+                    return value.toUpperCase();
+                },
+                uppercaseFirst: function (value) {
+                    if (!value) return '';
+                    value = value.toString();
+                    return value.charAt(0).toUpperCase() + value.substring(1);
+                },
+                appendTime: function (value, date) {
+                    return value + date;
+                },
+            }
+        });
+    }
+</script>
+</body>
+</html>

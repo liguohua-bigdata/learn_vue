@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="../../lib/vue.min.js"></script>
+
+
+</head>
+<body>
+<div id="box">
+    <div @click="show2()">
+        <input type="button" value="按钮" @click="show1($event)">
+    </div>
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        var vm = new Vue({
+            el: '#box',
+            methods: {
+                show1: function (event) {
+                    alert(1);
+                    //用于阻止事件冒泡，不会再执行show2()
+                    event.cancelBubble = true;
+                },
+                show2: function () {
+                    alert(2);
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

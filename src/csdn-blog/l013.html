@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="../../lib/vue.min.js"></script>
+</head>
+<body>
+<div id="box">
+    <!-- @eyup使得任意键盘上的键弹起后触发show1(),可以获取-->
+    <input type="text" placeholder="请输入" @keyup="show1($event)">
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        var vm = new Vue({
+            el: '#box',
+            methods: {
+                show1: function (event) {
+                    //获取keyCode
+                    alert("keyCode是："+event.keyCode);
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

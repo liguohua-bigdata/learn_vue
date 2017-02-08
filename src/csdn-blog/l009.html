@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="../../lib/vue.min.js"></script>
+
+
+</head>
+<body>
+<div id="box">
+    <!-- @contextmenu使得右键可以执行show1()和弹出菜单，@contextmenu.prevent可以阻止弹出菜单-->
+    <input type="button" value="右键执行" @contextmenu.prevent="show1()">
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        var vm = new Vue({
+            el: '#box',
+            methods: {
+                show1: function () {
+                    alert(1);
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

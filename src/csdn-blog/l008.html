@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="../../lib/vue.min.js"></script>
+
+
+</head>
+<body>
+<div id="box">
+    <div @click="show2()">
+        <!-- @click.stop可以阻止事件冒泡，不会再执行show2()-->
+        <input type="button" value="按钮" @click.stop="show1()">
+    </div>
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        var vm = new Vue({
+            el: '#box',
+            methods: {
+                show1: function () {
+                    alert(1);
+                },
+                show2: function () {
+                    alert(2);
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

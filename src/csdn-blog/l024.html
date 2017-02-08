@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../../lib/vue.min.js"></script>
+</head>
+<body>
+<div id="box">
+    {{msg}}
+    <hr>
+    {{reMsg}}
+    <hr>
+    {{reMsg2}}
+</div>
+<script type="text/javascript">
+    var vm = new Vue({
+        el:'#box',
+        data:{
+            msg:'Hello'
+        },
+        //定义计算属性
+        computed:{
+            reMsg:{
+                //计算属性的getter
+                get:function(){
+                    return this.msg.split('').reverse().join('')
+                },
+                //计算属性的setter
+                set:function(value){
+                    this.msg = value; //最后修改了msg
+                }
+            },
+            reMsg2:{
+                get:function(){
+                    return this.msg.split('').reverse().join('#')
+                },
+                set:function(value){
+                    this.msg = value; //最后修改了msg
+                }
+            }
+        }
+    });
+
+    console.log(vm.reMsg); //'olleH'
+</script>
+</body>
+</html>

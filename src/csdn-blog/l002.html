@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../../lib/vue.min.js"></script>
+</head>
+<body>
+<div id="box">
+    <!--v-model：用于进行双向数据绑定-->
+    <input type="text" v-model="msg"/>
+    <!--1.字符串数据-->
+    <div>
+        {{msg}}
+    </div>
+    <!--2.数组数据-->
+    <div>
+        {{arr}}
+    </div>
+    <!--3.定义json数据-->
+    <div>
+        {{json}}
+    </div>
+</div>
+<script type="text/javascript">
+    //也可以不使用 window.onload
+    new Vue({
+        el: '#box',
+        data: function () {
+            return {
+                //1.定义字符串数据
+                msg: 'Hello Vue!',
+                //2.定义数组数据
+                arr: ['apple', 'banana', 'orange'],
+                //3.定义json数据
+                json: {a: 'apple', b: 'banana'}
+            };
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="../../lib/vue.min.js"></script>
+    <script src="../../lib/vue-resource.min.js"></script>
+</head>
+<body>
+<div id="box">
+    <input type="button" @click="get1()" value="get">
+    <input type="button" @click="post1()" value="post传值">
+
+    <input type="button" @click="get2()" value="get传值">
+    <input type="button" @click="get3()" value="jsonp">
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        var vm = new Vue({
+            el: '#box',
+            methods: {
+                get1: function () {
+                    //发送get请求,请求springMVC后台数据
+                    var url = 'http://localhost:8080/test/get';
+                    this.$http.get(url).then(function (res) {
+                        console.log(res);
+                    }, function () {
+                        console.log('请求失败处理');
+                    });
+                },
+
+                post1: function () {
+                    var url = 'http://localhost:8080/test/post1';
+                    this.$http.post(url, {name: 'zhangsan', age: 12}, {emulateJSON: true}).then(function (res) {
+                        alert(res.body);
+                    }, function (res) {
+                        console.log(res.status);
+                    });
+                },
+
+
+                //还没有调试通过
+                get2: function () {
+                    var url = 'http://localhost:8080/test/get2';
+                    this.$http.get(url, {name: 'zhangsan', age: 12}, {emulateJSON: true}).then(function (res) {
+                        console.log(res);
+                    }, function (res) {
+                        console.log(res.status);
+                    });
+                },
+                //还没有调试通过
+                get3: function () {
+                    this.$http.jsonp('https://sug.so.360.cn/suggest', {
+                        word: 'a',
+                        callback: 'suggest_so'
+                    }, {jsonp: 'callback'}).then(function (res) {
+                        console.log(res.data);
+                    }, function (res) {
+                        console.log(res.status);
+                    });
+                },
+            }
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../../lib/vue.min.js"></script>
+</head>
+<body>
+<div id="box">
+    {{msg}}
+    <hr>
+    {{ msg.split('').reverse().join('') }}
+    <hr>
+    {{ msg.split('').reverse().join('#') }}
+</div>
+<script type="text/javascript">
+    new Vue({
+        el:'#box',
+        data:{
+            msg:'Hello'
+        },
+    });
+</script>
+</body>
+</html>

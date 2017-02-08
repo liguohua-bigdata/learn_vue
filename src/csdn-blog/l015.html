@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="../../lib/vue.min.js"></script>
+</head>
+<body>
+<div id="box">
+    <!-- @keyup使得回车弹起后触发show1()-->
+    <input type="text" placeholder="请输入" @keyup.enter="show1($event)">
+</div>
+<script type="text/javascript">
+    /*
+     @keyup.13 回车
+     @keyup.enter 回车
+     @keyup.left 左键
+     @keyup.right 右键
+     @keyup.up 上键
+     @keyup.down 下键
+     @keyup.delete 删除键
+     */
+    window.onload = function () {
+        var vm = new Vue({
+            el: '#box',
+            methods: {
+                show1: function (event) {
+                    //获取keyCode
+                    alert("按了回车！");
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

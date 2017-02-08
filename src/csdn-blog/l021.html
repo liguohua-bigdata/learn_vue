@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../../lib/vue.min.js"></script>
+</head>
+<body>
+<div id="box">
+    <input type="text" v-model="msg"><br/>
+    {{msg}}
+</div>
+<script type="text/javascript">
+    /*
+     Vue实例(new出来)在被创建之前要经过一系列初始化过程，在这个过程中，实例也会调用一些生命周期钩子。
+     */
+    new Vue({
+        el: '#box',
+        data: {
+            msg: 'welcome'
+        },
+        created: function () {
+            console.log('created：实例已经创建,msg变量还未渲染到模板')
+        },
+        mounted: function () {
+            console.log('mounted：已经挂载到模板上:msg变量渲染到模板')
+        },
+        updated: function () {
+            console.log('updated：实例更新啦')
+        },
+        destroyed: function () {
+            console.log('destroyed:销毁啦')
+        }
+    });
+</script>
+</body>
+</html>

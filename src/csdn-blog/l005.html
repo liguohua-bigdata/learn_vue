@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="../../lib/vue.min.js"></script>
+</head>
+<body>
+<div id="box">
+    <!--方法调用 @click等价于v-on:click-->
+    <input type="button" value="toggle" @click="toggle($event)"> <br/>
+    <div v-show="isShow" style="width: 100px;height: 100px;background: red"></div>
+</div>
+
+<script type="text/javascript">
+    window.onload = function () {
+        var vm = new Vue({
+            el: '#box',
+            data: function () {
+                return {
+                    isShow: false,
+                };
+
+            },
+            methods: {
+                //方法定义,可以传入事件参数
+                toggle: function (event) {
+                    console.log(event);
+                    //获取鼠标点击的X点和Y点。
+                    alert(event.clientX+":"+event.clientY);
+                    this.isShow = !this.isShow;
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

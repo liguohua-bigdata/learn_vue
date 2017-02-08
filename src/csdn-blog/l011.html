@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="../../lib/vue.min.js"></script>
+</head>
+<body>
+<div id="box">
+    <!-- @keydown使得任意键盘上的键按下后触发show1()-->
+    <input type="text" placeholder="请输入" @keydown="show1()">
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        var vm = new Vue({
+            el: '#box',
+            methods: {
+                show1: function () {
+                    alert(1);
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="../../lib/vue.min.js"></script>
+</head>
+<body>
+<div id="box">
+    <p>1.循环数组:value</p>
+    <ul>
+        <li v-for="a in arr">{{a}}</li>
+    </ul>
+
+
+    <hr>
+    <p>2.循环出数组:index:value</p>
+    <ul>
+        <li v-for="(v,i) in arr">{{i}}==>{{v}}</li>
+    </ul>
+
+
+    <hr>
+    <p>3.循环json:value</p>
+    <ul>
+        <li v-for="v in json">{{v}}</li>
+    </ul>
+
+
+    <hr>
+    <p>4.循环json-key:value</p>
+    <ul>
+        <li v-for="(v,k) in json">{{k}}==>{{v}}</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        var vm = new Vue({
+            el: '#box',
+            data: function () {
+                return {
+                    arr: ['apple', 'banana', 'orange'],
+                    json: {key_a: 'apple', key_b: 'banana'}
+                };
+            }
+        });
+    }
+</script>
+</body>
+</html>

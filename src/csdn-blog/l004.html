@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="../../lib/vue.min.js"></script>
+</head>
+<body>
+<div id="box">
+    <!--挂载方法  :click-->
+    <input type="button" value="按钮" v-on:click="add()"> <br/>
+    <ul>
+        <li v-for="v in arr">{{v}}</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        new Vue({
+            el: '#box',
+            data: function () {
+                return {
+                    arr: ['apple', 'banana']
+                };
+
+            },
+            methods: {
+                //定义方法
+                add: function () {
+                    // alert(this.arr);
+
+                    //这里的this就是实例化后的对象vm
+                    this.arr.push('tomato'); //给数组添加一个元素进去
+                }
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

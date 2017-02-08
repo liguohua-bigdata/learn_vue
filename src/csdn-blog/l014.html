@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="../../lib/vue.min.js"></script>
+</head>
+<body>
+<div id="box">
+    <!-- @keyup使得回车弹起后触发show1()-->
+    <input type="text" placeholder="请输入" @keyup.13="show1($event)">
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        var vm = new Vue({
+            el: '#box',
+            methods: {
+                show1: function (event) {
+                    //获取keyCode
+                    alert("按了回车！");
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>
